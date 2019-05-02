@@ -1,0 +1,17 @@
+
+groups:
+  admin:
+    
+    - model: User
+      ref: admin
+      fields: 
+        username: admin
+        emailAddress: admin@example.com
+        isAdmin: true
+      methods:
+        - method: setPassword
+          args:
+            - password123
+            
+exec:
+  - admin

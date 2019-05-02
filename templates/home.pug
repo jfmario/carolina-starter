@@ -1,0 +1,28 @@
+
+extends carolina/base/bootstrap_base
+
+include carolina/session/mixins
+
+block body
+  
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    
+    a.navbar-brand(href="#") My Carolina Site
+    
+    div.collapse.navbar-collapse
+      ul.navbar-nav
+        li.nav-item
+          a.nav-link(href="/auth/login") Login Page
+        li.nav-item
+          a.nav-link(href="/admin/") Admin Panel
+        li.nav-item
+          a.nav-link(href="http://carolina-site.s3-website.us-east-2.amazonaws.com/") Documentation
+        li.nav-item
+          a.nav-link(href="https://github.com/jfmario/carolina") GitHub
+        
+  br
+  br
+  
+  h1.display-1.text-center It Works!
+  
+  p.lead.text-center Your site is up and running. You are using the Carolina framework, a web development project for Node.js.

@@ -1,0 +1,151 @@
+
+extends /carolina/base/bootstrap_base.pug
+
+block body
+  .container
+    
+    h1.display-1 #{err.name}
+    
+    block description
+      p.lead= locals.description
+    
+    pre
+      code= err.stack
+      
+    block details
+      p This is an error.
+    
+    h2 Request / Response
+    
+    br
+    
+    if locals.request
+      
+      h3 HttpRequest
+      
+      p FROM #{request.ipAddress}
+      
+      .card.card-body.bg-light
+        
+        b Method & Headers
+        
+        pre
+          code
+            | #{request.method} #{request.url}
+            br
+            each headerValue, headerKey in request.headers
+              | #{headerKey}: #{headerValue}
+              br
+        
+        b Session Values
+        
+        pre
+          code
+            each sessionValue, sessionKey in request.session
+              | #{sessionKey}: #{sessionValue}
+              br
+    
+    br
+    
+    if locals.response
+      
+      h3 Intended HttpResponse
+        
+      .card.card-body.bg-light
+        
+        b Status & Headers
+        
+        pre
+          code
+            | #{response.status} #{response.statusText}
+            br
+            each headerValue, headerKey in response.headers
+              | #{headerKey.toLowerCase()}: #{headerValue}
+              br
+        
+        b Intended Cookies
+        
+        pre
+          code
+            each cookieValue, cookieKey in response.cookies
+              | #{cookieKey}: #{cookieValue}
+              br
+        
+        b Intended Session Values
+        
+        if (response.middlewareCompleted.indexOf("SessionMiddleware") != -1)
+          p These values were saved or updated in the session.
+        else
+          p These values were not saved or updated in the session.
+        
+        pre
+          code
+            each sessionValue, sessionKey in response.session
+              | #{sessionKey}: #{sessionValue}
+              br
+        
+        b Response Body Length: #{response.body.length}
+    
+    br
+    
+    h2 Middleware Path
+    
+    h3 Request Path
+    
+    table.table
+      thead
+        tr
+          th Middleware/Controller
+          th Success
+      tbody
+        each middleware, i in middlewareList
+          if (request.middlewareCompleted.indexOf(middleware.constructor.name) != -1)
+            tr.table-success
+              td= middleware.constructor.name
+              td Success
+          else if (request.middlewareCompleted.indexOf(middlewareList[i-1].constructor.name) != -1)
+            tr.table-danger
+              td= middleware.constructor.name
+              td Error
+          else
+            tr.table-warning
+              td= middleware.constructor.name
+              td Not Processed
+        if locals.response
+          tr.table-success
+            td Controller
+            td Success
+        else if (request.middlewareCompleted.indexOf(middlewareList[middlewareList.length-1].constructor.name) != -1)
+          tr.table-danger
+            td Controller
+            td error
+        else
+          tr.table-warning
+            td Controller
+            td Not Processed
+    
+    if locals.response
+    
+      h3 Response Path
+      
+      - middlewareList.reverse()
+      
+      table.table
+        thead
+          tr
+            th Middleware/Controller
+            th Success
+        tbody
+          each middleware, i in middlewareList
+            if (response.middlewareCompleted.indexOf(middleware.constructor.name) != -1)
+              tr.table-success
+                td= middleware.constructor.name
+                td Success
+            else if (response.middlewareCompleted.indexOf(middlewareList[i-1].constructor.name) != -1)
+              tr.table-danger
+                td= middleware.constructor.name
+                td Error
+            else
+              tr.table-warning
+                td= middleware.constructor.name
+                td Not Processed

@@ -1,0 +1,12 @@
+
+extends /carolina/errors/base.pug
+
+block details
+
+  h2 Templates
+  
+  .card.card-body.bg-light
+    each template in err.details.templates
+      | #{template}
+      br
+    

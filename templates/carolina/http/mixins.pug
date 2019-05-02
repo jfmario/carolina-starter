@@ -1,0 +1,9 @@
+
+mixin csrfToken(req)
+  input(type="hidden" name="csrf_token" value=req.session.csrf_token)
+
+mixin csrfTokenMetaTag(req)
+  meta(
+    name="csrf_token"
+    content=req.session.csrf_token
+  )

@@ -1,0 +1,9 @@
+
+mixin flashMessages(req)
+  if req.session.flash_messages
+    each flash in req.session.flash_messages
+      div(class="alert alert-" + flash.severity)
+        if flash.title 
+          b= flash.title
+        |
+        | #{flash.message}
