@@ -5,7 +5,7 @@
 exports = module.exports = {
   
   // whether or not the schedule should run
-  isActive: true,
+  isActive: false,
   
   // when to run jobs
   schedule: {
