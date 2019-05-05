@@ -7,12 +7,6 @@ exports = module.exports = [
     }
   },
   {
-    route: "/auth/upload",
-    methods: ['post'],
-    controller: "TestController",
-    method: "postAuth"
-  },
-  {
     route: "/from",
     redirectTo: "/api/to"
   },
