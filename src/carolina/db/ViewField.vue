@@ -7,6 +7,7 @@
     <EmailField v-if="schema.type == 'Email'" ctx='table' :value="value" />
     <JsonField v-if="schema.type == 'Json'" ctx='table' :value="value" />
     <NumberField v-if="schema.type == 'Number'||schema.type=='Integer'" ctx='table' :value="value" />
+    <RegexField v-if="schema.type == 'Regex'" ctx='table' :value="value" />
     <StringField v-if="schema.type == 'String'||schema.type=='IPv4'" ctx='table' :value="value" />
   </td>
 </template>
@@ -21,6 +22,7 @@ export default {
     EmailField: () => import(/* webpackChunkName: "carolina.db.fields.email" */ './fields/Email.vue'),
     JsonField: () => import(/* webpackChunkName: "carolina.db.fields.json" */ './fields/Json.vue'),
     NumberField: () => import(/* webpackChunkName: "carolina.db.fields.number" */ './fields/Number.vue'),
+    RegexField: () => import(/* webpackChunkName: "carolina.db.fields.regex */ './fields.Regex.vue'),
     StringField: () => import(/* webpackChunkName: "carolina.db.fields.string" */ './fields/String.vue')
   },
   props: ['schema', 'value']

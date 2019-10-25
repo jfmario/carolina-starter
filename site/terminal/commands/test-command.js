@@ -23,7 +23,19 @@ class TestCommand extends BaseCommand {
 
   async handle(args) {
     
-    console.log("This is a test command.");
+    // console.log("This is a test command.");
+    
+    const DBSvc = Carolina.$('DB')
+    const TestModel = DBSvc._modelClass('TestModel');
+    
+    let tm = new TestModel({
+      name: "name",
+      expression: /[a-z]/
+    });
+    
+    console.log(tm);
+    console.log(tm._toJSON())
+    console.log(tm._toDb());
   }
 }
 

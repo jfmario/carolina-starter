@@ -8,6 +8,7 @@
     <JsonField v-if="schema.type == 'Json'" :ctx='ctx' :value="value" />
     <NumberField v-if="schema.type == 'Number'||schema.type=='Integer'" :ctx='ctx' :value="value" />
     <RefField v-if="schema.type == 'Ref'" :ctx='ctx' :schema="schema" :value="value" />
+    <RegexField v-if="schema.type == 'Regex'" :ctx='ctx' :schema="schema" :value="value" />
     <StringField v-if="schema.type == 'String'||schema.type=='IPv4'" :ctx='ctx' :value="value" />
     <TextField v-if="schema.type == 'Text'" :ctx='ctx' :value="value" />
   </td>
@@ -24,6 +25,7 @@ export default {
     JsonField: () => import(/* webpackChunkName: "carolina.db.fields.json" */ './fields/Json.vue'),
     NumberField: () => import(/* webpackChunkName: "carolina.db.fields.number" */ './fields/Number.vue'),
     RefField: () => import(/* webpackChunkName: "carolina.db.fields.ref" */ './fields/Ref.vue'),
+    RegexField: () => import(/* webpackChunkName: "carolina.db.fields.regex */ './fields.Regex.vue'),
     StringField: () => import(/* webpackChunkName: "carolina.db.fields.string" */ './fields/String.vue'),
     TextField: () => import(/* webpackChunkName: "carolina.db.fields.text" */ './fields/Text.vue')
   },
