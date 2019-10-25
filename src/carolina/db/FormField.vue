@@ -24,7 +24,7 @@ export default {
     JsonField: () => import(/* webpackChunkName: "carolina.db.fields.json" */ './fields/Json.vue'),
     NumberField: () => import(/* webpackChunkName: "carolina.db.fields.number" */ './fields/Number.vue'),
     RefField: () => import(/* webpackChunkName: "carolina.db.fields.ref" */ './fields/Ref.vue'),
-    RegexField: () => import(/* webpackChunkName: "carolina.db.fields.regex */ './fields.Regex.vue'),
+    RegexField: () => import(/* webpackChunkName: "carolina.db.fields.regex */ './fields/Regex.vue'),
     StringField: () => import(/* webpackChunkName: "carolina.db.fields.string" */ './fields/String.vue'),
     TextField: () => import(/* webpackChunkName: "carolina.db.fields.text" */ './fields/Text.vue')
   },
