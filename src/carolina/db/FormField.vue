@@ -1,15 +1,16 @@
 
 <template>
   <div>
-    <BooleanField v-if="schema.type == 'Boolean'" ctx='form' :schema="schema" :value="value" @input="handle" />
-    <DateField v-if="schema.type == 'Date'" ctx='form' :schema="schema" :value="value" @input="handle" />
-    <EmailField v-if="schema.type == 'Email'" ctx='form' :schema="schema" :value="value" @input="handle" />
-    <JsonField v-if="schema.type == 'Json'" ctx='form' :schema="schema" :value="value" @input="handle" />
-    <NumberField v-if="schema.type == 'Number'||schema.type=='Integer'" ctx='form' :schema="schema" :value="value" @input="handle" />
-    <RefField v-if="schema.type == 'Ref'" ctx='form' :schema="schema" :value="value" @input="handle" />
-    <RegexField v-if="schema.type == 'Regex'" ctx='form' :schema="schema" :value="value" @input="handle" />
-    <StringField v-if="schema.type == 'String'||schema.type=='IPv4'" ctx='form' :schema="schema" :value="value" @input="handle" />
-    <TextField v-if="schema.type == 'Text'" ctx='form' :schema="schema" :value="value" @input="handle" />
+    <ChoiceField v-if="'choices' in schema" ctx='form' :schema="schema" :value="value" @input="handle" />
+    <BooleanField v-else-if="schema.type == 'Boolean'" ctx='form' :schema="schema" :value="value" @input="handle" />
+    <DateField v-else-if="schema.type == 'Date'" ctx='form' :schema="schema" :value="value" @input="handle" />
+    <EmailField v-else-if="schema.type == 'Email'" ctx='form' :schema="schema" :value="value" @input="handle" />
+    <JsonField v-else-if="schema.type == 'Json'" ctx='form' :schema="schema" :value="value" @input="handle" />
+    <NumberField v-else-if="schema.type == 'Number'||schema.type=='Integer'" ctx='form' :schema="schema" :value="value" @input="handle" />
+    <RefField v-else-if="schema.type == 'Ref'" ctx='form' :schema="schema" :value="value" @input="handle" />
+    <RegexField v-else-if="schema.type == 'Regex'" ctx='form' :schema="schema" :value="value" @input="handle" />
+    <StringField v-else-if="schema.type == 'String'||schema.type=='IPv4'" ctx='form' :schema="schema" :value="value" @input="handle" />
+    <TextField v-else-if="schema.type == 'Text'" ctx='form' :schema="schema" :value="value" @input="handle" />
   </div>
 </template>
 
@@ -19,6 +20,7 @@ export default {
   components: {
     ArrayField: () => import(/* webpackChunkName: "carolina.db.fields.array" */ './fields/Array.vue'),
     BooleanField: () => import(/* webpackChunkName: "carolina.db.fields.boolean" */ './fields/Boolean.vue'),
+    ChoiceField: () => import(/* webpackChunkName: "carolina.db.fields.choice" */ './fields/Choice.vue'),
     DateField: () => import(/* webpackChunkName: "carolina.db.fields.date" */ './fields/Date.vue'),
     EmailField: () => import(/* webpackChunkName: "carolina.db.fields.email" */ './fields/Email.vue'),
     JsonField: () => import(/* webpackChunkName: "carolina.db.fields.json" */ './fields/Json.vue'),

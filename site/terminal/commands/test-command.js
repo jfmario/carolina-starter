@@ -30,7 +30,7 @@ class TestCommand extends BaseCommand {
     
     let tm = new TestModel({
       name: "name",
-      expression: /[a-z]/
+      expression: "[a-z]"
     });
     
     console.log(tm);

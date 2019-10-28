@@ -10,8 +10,16 @@ class TestModelSchema extends BaseSchema {
     
     this.table = 'test_model';
     
+    // value must be something with a simple value that will pass an equality test
+    let rpsChoices = [
+      { name: 'Rock', value: 1 },
+      { name: 'Paper', value: 2 },
+      { name: 'Scissors', value: 3 }
+    ];
+    
     this.fields.name = { type: 'String' };
     this.fields.expression = { type: 'Regex' };
+    this.fields.choice = { type: 'Integer', choices: rpsChoices };
   }
 }
 
