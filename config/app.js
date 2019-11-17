@@ -44,6 +44,7 @@ exports = module.exports = {
      * Core Services
      * These must exist.
      */
+    Authorization: 'carolina/services/authorization/authorization',
     Cron: 'carolina/services/cron/cron-service',
     Crypto: 'carolina/services/crypto/crypto-service',
     DB: "carolina/services/db/database-service",

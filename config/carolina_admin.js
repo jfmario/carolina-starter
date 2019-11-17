@@ -9,7 +9,7 @@ exports = module.exports = {
       title: "Users & Roles",
       icon: 'user',
       description: "This section is for managing users and roles.",
-      models: [ 'User', 'Role', 'TestModel' ]
+      models: [ 'User', 'Group', 'Role', 'TestModel' ]
     },
     {
       title: "Site Data",
