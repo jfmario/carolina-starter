@@ -34,11 +34,12 @@ class TestController extends BaseController {
   }
   async handle2(request, data={}) {
     
-    if (request.method == 'GET') {
-      return this.pugTemplate('temp_upload', {}, request)
-    }
+    const AuthorizationSvc = Carolina.$('Authorization');
+
+    await AuthorizationSvc.userHasNamedPermission(request.user, "some/perm", true);
+
     
-    return this.sendText(request._req.body['upload'].path);
+    return this.sendText("OK");
     
   }
 }

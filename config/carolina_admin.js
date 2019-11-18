@@ -9,7 +9,7 @@ exports = module.exports = {
       title: "Users & Roles",
       icon: 'user',
       description: "This section is for managing users and roles.",
-      models: [ 'User', 'Group', 'Role', 'TestModel' ]
+      models: [ 'User', 'Group', 'Role' ]
     },
     {
       title: "Site Data",
@@ -26,6 +26,7 @@ exports = module.exports = {
       ],
       instance: [
         'Carolina/Admin/SetPasswordAction',
+        'Carolina/Admin/PermissionCheck',
         'Carolina/Admin/EmailUserAction'
       ]
     },
