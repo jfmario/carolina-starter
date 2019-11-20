@@ -2,14 +2,15 @@
 /* global Carolina */
 
 const expect = require('chai').expect;
+const crypto = require('crypto');
 
 describe("Crypto Service", () => {
   
   it("Service exists.", () => {
     expect(Carolina.$("Crypto")).to.exist;
   });
-  it("Uses algorithm AES-256-CBC-HMAC-SHA256.", () => {
-    expect(Carolina.$('Crypto').algorithm).to.equal("AES-256-CBC-HMAC-SHA256");
+  it("Uses algorithm AES-256-ECB.", () => {
+    expect(Carolina.$('Crypto').algorithm).to.equal("AES-256-ECB");
   });
   it("Encrypts values into something different.", () => {
     let original = "A string of text.";
@@ -43,7 +44,7 @@ describe("Crypto Service", () => {
     let original = "A string of text.";
     let encrypted1 = Carolina.$('Crypto').encryptText(original);
     let appSecret = Carolina.config("app.secret");
-    let otherSecret = "other_secret";
+    let otherSecret = crypto.randomBytes(16).toString("hex");
     
     Carolina.setConfig("app.secret", otherSecret);
     let encrypted2 = Carolina.$('Crypto').encryptText(original);

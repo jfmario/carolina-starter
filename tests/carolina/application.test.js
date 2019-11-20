@@ -7,8 +7,9 @@ const moment = require('moment');
 
 const bootstrapCarolina = require('../testing_bootstrap');
 
-before(async () => {
-  await bootstrapCarolina();
+before(function () {
+  this.timeout(5000);
+  bootstrapCarolina();
 });
 
 describe("Carolina", () => {

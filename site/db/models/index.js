@@ -3,6 +3,6 @@
  * Custom models.
  */
 exports = module.exports = {
-  TestModel: require('./test-model'),
-  User: require('./user')
+  TestModel: './site/db/models/test-model',
+  User: './site/db/models/user'
 };

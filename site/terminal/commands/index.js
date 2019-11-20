@@ -4,5 +4,5 @@
  * Export terminal commands here.
  */
 exports = module.exports = {
-  TestCommand: require('./test-command')
+  TestCommand: './site/terminal/commands/test-command'
 };

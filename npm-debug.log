@@ -1,27 +1,37 @@
 0 info it worked if it ends with ok
 1 verbose cli [ '/home/jfmario/.nvm/v4.8.5/bin/node',
 1 verbose cli   '/home/jfmario/.nvm/v4.8.5/bin/npm',
-1 verbose cli   'update',
-1 verbose cli   'carolina' ]
+1 verbose cli   'run',
+1 verbose cli   'test' ]
 2 info using npm@2.1.1
 3 info using node@v4.8.5
-4 verbose stack Error: Unsupported URL Type: github:jfmario/carolina#v1.1.0
-4 verbose stack     at parseUrl (/home/jfmario/.nvm/v4.8.5/lib/node_modules/npm/node_modules/npm-package-arg/npa.js:173:13)
-4 verbose stack     at npa (/home/jfmario/.nvm/v4.8.5/lib/node_modules/npm/node_modules/npm-package-arg/npa.js:74:12)
-4 verbose stack     at shouldUpdate (/home/jfmario/.nvm/v4.8.5/lib/node_modules/npm/lib/outdated.js:268:7)
-4 verbose stack     at /home/jfmario/.nvm/v4.8.5/lib/node_modules/npm/lib/outdated.js:237:7
-4 verbose stack     at /home/jfmario/.nvm/v4.8.5/lib/node_modules/npm/node_modules/slide/lib/async-map.js:52:35
-4 verbose stack     at Array.forEach (native)
-4 verbose stack     at /home/jfmario/.nvm/v4.8.5/lib/node_modules/npm/node_modules/slide/lib/async-map.js:52:11
-4 verbose stack     at Array.forEach (native)
-4 verbose stack     at asyncMap (/home/jfmario/.nvm/v4.8.5/lib/node_modules/npm/node_modules/slide/lib/async-map.js:51:8)
-4 verbose stack     at next (/home/jfmario/.nvm/v4.8.5/lib/node_modules/npm/lib/outdated.js:236:5)
-5 verbose cwd /home/jfmario/net/drive/share/projects/carolina-starter
-6 error Linux 4.10.0-40-generic
-7 error argv "/home/jfmario/.nvm/v4.8.5/bin/node" "/home/jfmario/.nvm/v4.8.5/bin/npm" "update" "carolina"
-8 error node v4.8.5
-9 error npm  v2.1.1
-10 error Unsupported URL Type: github:jfmario/carolina#v1.1.0
-11 error If you need help, you may report this error at:
-11 error     <http://github.com/npm/npm/issues>
-12 verbose exit [ 1, true ]
+4 verbose run-script [ 'pretest', 'test', 'posttest' ]
+5 info pretest carolina-dev@1.1.0
+6 info test carolina-dev@1.1.0
+7 verbose unsafe-perm in lifecycle true
+8 info carolina-dev@1.1.0 Failed to exec test script
+9 verbose stack Error: carolina-dev@1.1.0 test: `mocha tests/*/*`
+9 verbose stack Exit status 1
+9 verbose stack     at ChildProcess.<anonymous> (/home/jfmario/.nvm/v4.8.5/lib/node_modules/npm/lib/utils/lifecycle.js:212:16)
+9 verbose stack     at emitTwo (events.js:87:13)
+9 verbose stack     at ChildProcess.emit (events.js:172:7)
+9 verbose stack     at maybeClose (internal/child_process.js:862:16)
+9 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:222:5)
+10 verbose pkgid carolina-dev@1.1.0
+11 verbose cwd /home/jfmario/net/drive/share/projects/carolina-starter
+12 error Linux 4.10.0-40-generic
+13 error argv "/home/jfmario/.nvm/v4.8.5/bin/node" "/home/jfmario/.nvm/v4.8.5/bin/npm" "run" "test"
+14 error node v4.8.5
+15 error npm  v2.1.1
+16 error code ELIFECYCLE
+17 error carolina-dev@1.1.0 test: `mocha tests/*/*`
+17 error Exit status 1
+18 error Failed at the carolina-dev@1.1.0 test script.
+18 error This is most likely a problem with the carolina-dev package,
+18 error not with npm itself.
+18 error Tell the author that this fails on your system:
+18 error     mocha tests/*/*
+18 error You can get their info via:
+18 error     npm owner ls carolina-dev
+18 error There is likely additional logging output above.
+19 verbose exit [ 1, true ]

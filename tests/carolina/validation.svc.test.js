@@ -23,9 +23,9 @@ describe("Validation Service", () => {
   
   describe("Schema Library", () => {
     
-    it("Contains included Schema named LoginSchema.", () => {
+    it("Contains included Schema named Login.", () => {
       let ValidationSvc = Carolina.$("Validation");
-      expect(() => { ValidationSvc._schema("LoginSchema") }).to.not.throw();
+      expect(() => { ValidationSvc._schema("Login") }).to.not.throw();
     });
   });
 });

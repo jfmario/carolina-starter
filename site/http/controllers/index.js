@@ -3,5 +3,5 @@
  * Export controllers here.
  */
 exports = module.exports = {
-  HomeController: require('./home')
+  HomeController: './site/http/controllers/home'
 };
